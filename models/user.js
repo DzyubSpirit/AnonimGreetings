@@ -1,34 +1,18 @@
-var db = require('../db.js');
+var db;
 var bcrypt   = require('bcrypt-nodejs');
+var lib = {};
 
-// var userSchema = mongoose.Schema({
-//   name: String,
-//   username: { type: String, required: true, unique: true },
-//   password: { type: String, required: true },
-//   admin: Boolean
-// });
-
-// userSchema.methods.generateHash = function(password) {
-//   return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
-// };
-
-// userSchema.methods.validPassword = function(password) {
-//   return bcrypt.compareSync(password, this.password);
-// };
-
-// module.exports = mongoose.model('User', userSchema);
-
-function addPasswordValidation(user_obj) {
-    user_obj.validPassword = function(password, callback) {
+function addPasswordValidation(user) {
+    user.validPassword = function(password, callback) {
         db.validPassword({
-            'id': data['id'],
+            'id': user['id'],
             'password': password
         }, callback);
     }
 
 }
 
-module.exports.findOne = function(user_obj, callback) {
+lib.findOne = function(user_obj, callback) {
     db.findUser(user_obj, function(err, user) {
         if (err) {
             callback(err);
@@ -40,7 +24,7 @@ module.exports.findOne = function(user_obj, callback) {
     });
 }
 
-module.exports.findById = function(user_id, callback) {
+lib.findById = function(user_id, callback) {
     db.findUserById(user_id, function(err, user) {
         if (err) {
             callback(err);
@@ -51,4 +35,9 @@ module.exports.findById = function(user_id, callback) {
         // console.log(data);
         callback(null, user);
     });
+}
+
+module.exports = function(database) {
+    db = database;
+    return lib;
 }
