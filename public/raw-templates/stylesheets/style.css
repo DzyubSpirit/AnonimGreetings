@@ -1,0 +1,28 @@
+body {
+  padding: top 250px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+.login_container{
+  padding-top: 200px;
+  width: 300px;
+  margin: 0 auto 10px;
+  text-align: center
+}
+
+.mainpage_create_container{
+  position: absolute;
+  padding-top: 200px;
+  width: auto;
+  text-align: center
+}
+
+.mainpage_do_container{
+  position: absolute;
+  padding-top: 200px;
+  width: auto;
+}
