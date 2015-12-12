@@ -8,5 +8,5 @@ fs.readdirSync('tasks').forEach(function(fileName) {
 });
 
 gulp.task('default', [ 'build-dist' ]);
-gulp.task('build-dist', [ 'clean', 'compile-html' ]);
+gulp.task('build-dist', [ 'compile-html', 'compile-app', 'clean' ]);
 gulp.task('compile-app', [ 'compile-js', 'compile-css', 'concat-vendors' ]);

@@ -7,6 +7,6 @@ module.exports = function(gulp, plugins) {
       ])
       .pipe(plugins.concat('vendors.js'))
       .pipe(plugins.md5(10))
-      .pipe(gulp.dest('dist'));
+      .pipe(gulp.dest('public'));
   });
 };
