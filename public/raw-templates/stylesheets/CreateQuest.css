@@ -27,6 +27,7 @@ a {
 }
 .form-createquest{
   margin: 0 auto 10px;
+  text-align: left;
   width: 450px;
   height: 100px;
   padding: 6px 12px;
