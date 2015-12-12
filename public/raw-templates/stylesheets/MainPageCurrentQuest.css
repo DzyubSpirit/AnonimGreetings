@@ -7,9 +7,12 @@ a {
   color: #00B7FF;
 }
 
-.login_container{
+.buttons_container{
   padding-top: 200px;
   width: 300px;
   margin: 0 auto 10px;
   text-align: center
+}
+.currentQ_text{
+	background-color: #00BFFF;
 }
