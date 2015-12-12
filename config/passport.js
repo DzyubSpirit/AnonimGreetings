@@ -1,7 +1,11 @@
 var LocalStrategy = require('passport-local').Strategy;
-var User = require('../models/user');
+var User;
+var db;
 
-module.exports = function(passport) {
+module.exports = function(passport, database) {
+  db = database;
+  // console.log(database);
+  User = require('../models/user')(db);
   passport.serializeUser(function(user, done) {
     done(null, user.id);
   });
@@ -21,21 +25,21 @@ module.exports = function(passport) {
     // console.log('Pass:'+password);
     User.findOne({ username: username }, function(err, user) {
       if (err) { 
-        console.log(1);
+        // console.log(1);
         return done(err); 
       }
       if (!user) {
-        console.log(2);
+        // console.log(2);
         return done(null, false, { message: "Incorrect username."});
       }
-      console.log(user);
+      // console.log(user);
       user.validPassword(password, function(err, isExisted) {
         if (err) return done(err);
         if (!isExisted) {
-          console.log(3);
+          // console.log(3);
           return done(null, false, {message: "Incorrect password."});
         } else {
-          console.log(4);
+          // console.log(4);
           return done(null, user);
         }
       }); 
