@@ -115,11 +115,6 @@ button,
 input,
 optgroup,
 select,
-textarea {
-  margin: 0;
-  font: inherit;
-  color: inherit;
-}
 button {
   overflow: visible;
 }
@@ -3185,7 +3180,7 @@ fieldset[disabled] .btn-primary.focus {
 }
 .btn-success:focus,
 .btn-success.focus {
-  color: #fff;
+  color: #fff ;
   background-color: #449d44;
   border-color: #255625;
 }
