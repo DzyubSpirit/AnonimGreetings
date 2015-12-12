@@ -1,5 +1,5 @@
 module.exports = function(gulp, plugins) {
-  return gulp.task('compile-html', [ 'compile-app' ], function() {
+  return gulp.task('compile-html', function() {
     var files = gulp.src([
       'public/vendors_*.js',
       'public/app_*.js',

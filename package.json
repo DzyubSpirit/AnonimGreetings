@@ -31,7 +31,6 @@
     "gulp-watch": "^4.3.5",
     "morgan": "~1.0.0",
     "ui-router": "~0.2",
-    "ui-select": "^0.13.2",
     "gulp-browserify": "^0.5.1"
   }
 }
