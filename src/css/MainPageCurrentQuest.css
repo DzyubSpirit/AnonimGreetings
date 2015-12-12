@@ -1,0 +1,18 @@
+body {
+  padding: top 250px;
+  font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+.buttons_container{
+  padding-top: 200px;
+  width: 300px;
+  margin: 0 auto 10px;
+  text-align: center
+}
+.current_quest_page_container{
+	
+}
