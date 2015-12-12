@@ -1,14 +1,10 @@
 var es = require('event-stream');
-var browserify = require('browserify');
-var babelify = require('babelify');
-var source = require('vinyl-source-stream');
-var buffer = require('vinyl-buffer');
+var browserify = require('gulp-browserify');
 var globby = require('globby');
 
 module.exports = function(gulp, plugins) {
   return gulp.task('compile-js', function() {
-    var templates = gulp.src('src/**/*.html')
-      .pipe(plugins.templateCache({ standalone: true }));
+    var templates = gulp.src('src/**/*.html');
 
       var js = browserify({
         debug: true,
@@ -19,14 +15,9 @@ module.exports = function(gulp, plugins) {
           'src/app/**/*.js'
         ])
       })
-      .transform(babelify.configure({
-        presets: [ 'es2015' ],
-      }))
-      .bundle()
-      .pipe(source('app.js'))
-      .pipe(buffer());
 
-    return es.merge(js, templates)
+  console.log( '>>>', plugins );
+    return es.merge([ js, templates ])
       .pipe(plugins.concat('app.js'))
       .pipe(plugins.md5(10))
       .pipe(gulp.dest('dist'));

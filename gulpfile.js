@@ -1,9 +1,9 @@
 var fs = require('fs');
 var path = require('path');
 var gulp = require('gulp');
-var plugins = require('gulp-load-plugins');
+var plugins = require('gulp-load-plugins')();
 
-fs.readdirSync('./tasks').forEach(function(fileName) {
+fs.readdirSync('tasks').forEach(function(fileName) {
   require(path.join(__dirname, 'tasks', fileName))(gulp, plugins);
 });
 
