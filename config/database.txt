@@ -1,0 +1,4 @@
+database=AnonymGreetings
+host=localhost
+user=root
+password=admins_password

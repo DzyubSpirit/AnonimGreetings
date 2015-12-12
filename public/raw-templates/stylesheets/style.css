@@ -6,23 +6,3 @@ body {
 a {
   color: #00B7FF;
 }
-
-.login_container{
-  padding-top: 200px;
-  width: 300px;
-  margin: 0 auto 10px;
-  text-align: center
-}
-
-.mainpage_create_container{
-  position: absolute;
-  padding-top: 200px;
-  width: auto;
-  text-align: center
-}
-
-.mainpage_do_container{
-  position: absolute;
-  padding-top: 200px;
-  width: auto;
-}
