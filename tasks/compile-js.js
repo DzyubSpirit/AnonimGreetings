@@ -1,5 +1,5 @@
 var es = require('event-stream');
-var browserify = require('browserify');
+var browserify = require('gulp-browserify');
 var globby = require('globby');
 
 module.exports = function(gulp, plugins) {
@@ -15,8 +15,9 @@ module.exports = function(gulp, plugins) {
           'src/app/**/*.js'
         ])
       })
-console.log(plugins.concat)
-    return es.merge(js, templates)
+
+  console.log( '>>>', plugins );
+    return es.merge([ js, templates ])
       .pipe(plugins.concat('app.js'))
       .pipe(plugins.md5(10))
       .pipe(gulp.dest('dist'));
