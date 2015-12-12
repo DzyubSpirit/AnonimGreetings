@@ -9,21 +9,12 @@ router.get('/', function(req, res) {
             res.end(err.message);
             return;
         }
-        res.write(JSON.stringify(req.isAuthenticated()));
-        res.write(JSON.stringify(data));
-        res.write('\n');
+        // res.write(JSON.stringify(req.isAuthenticated()));
+        // res.write(JSON.stringify(data));
+        // res.write('\n');
         // res.write(data);
         // res.write(data[0]['password']);
-        data.validPassword({
-            'id': data.id,
-            'password': data['password']
-        }, function(err, data) {
-            if (err) {
-                res.end(err.message);
-                return;
-            }
-            res.end(JSON.stringify(data));
-        });
+        res.end();
     });
     // res.render('index', { title: 'Express' });
 });

@@ -18,7 +18,7 @@ module.exports = function(passport) {
     passwordField : 'password',
     passReqToCallback : true
   },function(err, username, password, done) {
-    // console.log(0);
+    // console.log('Pass:'+password);
     User.findOne({ username: username }, function(err, user) {
       if (err) { 
         console.log(1);
@@ -31,7 +31,7 @@ module.exports = function(passport) {
       console.log(user);
       user.validPassword(password, function(err, isExisted) {
         if (err) return done(err);
-        if (isExisted) {
+        if (!isExisted) {
           console.log(3);
           return done(null, false, {message: "Incorrect password."});
         } else {

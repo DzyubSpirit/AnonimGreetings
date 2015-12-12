@@ -18,30 +18,37 @@ var bcrypt   = require('bcrypt-nodejs');
 
 // module.exports = mongoose.model('User', userSchema);
 
+function addPasswordValidation(user_obj) {
+    user_obj.validPassword = function(password, callback) {
+        db.validPassword({
+            'id': data['id'],
+            'password': password
+        }, callback);
+    }
+
+}
+
 module.exports.findOne = function(user_obj, callback) {
-    db.findUser(user_obj, function(err, data) {
+    db.findUser(user_obj, function(err, user) {
         if (err) {
             callback(err);
             return;
         }
-        data.validPassword = function(user_obj, callback) {
-            db.validPassword(user_obj, callback);
-        }
+        addPasswordValidation(user);
         // console.log(data);
-        callback(null, data);
+        callback(null, user);
     });
 }
 
 module.exports.findById = function(user_id, callback) {
-    db.findUserById(user_id, function(err, data) {
+    db.findUserById(user_id, function(err, user) {
         if (err) {
             callback(err);
             return;
         }
-        data.validPassword = function(user_obj, callback) {
-            db.validPassword(user_obj, callback);
-        }
         // console.log(data);
-        callback(null, data);
+        addPasswordValidation(user);
+        // console.log(data);
+        callback(null, user);
     });
 }
