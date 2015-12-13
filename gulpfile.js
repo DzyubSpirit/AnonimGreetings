@@ -9,4 +9,4 @@ fs.readdirSync('tasks').forEach(function(fileName) {
 
 gulp.task('default', [ 'build-dist' ]);
 gulp.task('build-dist', [ 'compile-app', 'compile-html', 'compile-partials', 'clean' ]);
-gulp.task('compile-app', [ 'compile-css', 'concat-vendors', 'compile-js' ]);
+gulp.task('compile-app', [ 'compile-css', 'concat-vendors', 'compile-js', 'compile-images' ]);

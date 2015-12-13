@@ -7,28 +7,8 @@ angular.module('app')
       .state('login', {
         abstract: true,
         url: '/login',
-        templateUrl: 'partials/wizard/structure.html',
-        controller: 'WizardCtrl',
-        controllerAs: 'wizard'
-      })
-      .state('wizard.theme', {
-        url: '/theme',
-        templateUrl: 'partials/wizard/themes.html',
-        controller: 'ThemesCtrl',
-        controllerAs: 'showcase'
-      })
-      .state('wizard.constructor', {
-        url: '/constructor',
-        templateUrl: 'partials/wizard/constructor.html',
-        controller: 'ConstructorCtrl',
-        controllerAs: 'constructor'
-      })
-      .state('wizard.save', {
-        url: '/save',
-        templateUrl: 'partials/wizard/save.html'
-      })
-      .state('wizard.link', {
-        url: '/link',
-        templateUrl: 'partials/wizard/link.html'
+        templateUrl: 'partials/login.html',
+        controller: 'loginController',
+        controllerAs: 'auth'
       })
   } ])
