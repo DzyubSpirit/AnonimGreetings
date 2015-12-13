@@ -1,20 +1,40 @@
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>New Year Hackaton</title>
-    <!-- Прикол1 -->
-    <link href="..\bootstrap\css\bootstrap.css" rel="stylesheet">
-    <link href="..\stylesheets\QuestsListPage.css" rel="stylesheet">
-  </head>
+    <html lang="en">
+      <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>New Year Hackaton</title>
+        <!-- Прикол1 -->
+        <link href="..\css\bootstrap.css" rel="stylesheet">
+        <link href="..\css\main.css" rel="stylesheet">
+      </head>
 
-  <body>
-  	<div class = "list_container">
-		<ol type="I">
-			<li><div class = "user_container">Username1<p>Description</p><button class="btn btn-lg btn-primary btn">Take quest</button></div></li>
-			<li><div class = "user_container">Username2<p>Description</p><button class="btn btn-lg btn-primary btn">Take quest</button></div></li>
-		</ol>
-	</div>
-  </body>
-</html>
+      <body>
+      <div class = "page_container" id = "main">
+      <div class = "list_container">
+        <div class = "left_container">
+        <div class = "headingtext_container">
+        <p>Your Quests</p>
+        </div>
+          <button  class="btn btn-lg btn-primary top_button" >Create quest</button>
+        	  <div class="list-group">
+              <a href="#" class="list-group-item">First quest</a>
+              <a href="#" class="list-group-item">Second quest</a>
+              <a href="#" class="list-group-item">Third quest</a>
+            </div>
+        </div>
+        <div class = "right_container">
+        <div class = "headingtext_container">
+        <p>Quest list</p>
+        </div>
+          <button  class="btn btn-lg btn-primary top_button" >Your current quest</button>
+            <div class="list-group">
+              <a href="#" class="list-group-item">All quest1</a>
+              <a href="#" class="list-group-item">All quest2</a>
+              <a href="#" class="list-group-item">All quest3</a>
+            </div>
+        </div>
+        </div>
+    	</div>
+      </body>
+    </html>
