@@ -37,6 +37,10 @@ lib.findById = function(user_id, callback) {
     });
 }
 
+lib.create = function(user_obj, callback) {
+    db.createUser(user_obj, callback);
+}
+
 module.exports = function(database) {
     db = database;
     return lib;

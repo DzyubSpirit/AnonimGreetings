@@ -18,10 +18,11 @@ exports.findUser = function(user_obj, callback) {
     // console.log(sql);
     connection.query(sql, function(err, data) {
         if (err) {
+            // console.log(err);
             callback(err);
             return;
         }
-        if (data.length == 0) {
+        if (data.length === 0) {
             callback(null, false);
             return;
         }
@@ -48,6 +49,42 @@ exports.findUserById = function(user_id, callback) {
     });
 }
 
+exports.createUser = function(user_obj, callback) {
+    if (!user_obj['login']) {
+        callback(new Error('No login'));
+    }
+    if (!user_obj['email']) {
+        callback(new Error('No email'));
+    }
+    if (!user_obj['password']) {
+        callback(new Error('No password'));
+    }
+    exports.findUser({username: user_obj['login']}, function(err, user) {
+        if (err) {
+            console.log(err);
+            return callback(err);
+        }
+        if (user) {
+            // console.log('1'+JSON.stringify(user));
+            return callback(null, false);
+        }
+        var sql=
+"INSERT INTO `users` \
+(login,email,password) \
+VALUES \
+(?,?,?);";
+        var inserts = [user_obj['login'], user_obj['email'], user_obj['password']];
+        sql = mysql.format(sql, inserts, true);
+        connection.query(sql, function(err, user) {
+            if (err) {
+                console.log(err);
+                return callback(err);
+            }
+            user_obj['id'] = user['insertId'];
+            callback(null, user_obj);
+        });
+    });
+}
 
 exports.validPassword = function(user_obj, callback) {
     var sql =
@@ -90,10 +127,10 @@ ON user_quests.quest_id=quests.id;"
             user_id: data[0]['user_id'],
             quests: {}
         };
-        console.log(data);
+        // console.log(data);
         for (var i in data) {
-            console.log(data[i]['quest_id']);
-            console.log(data[i]['quest_text']);
+            // console.log(data[i]['quest_id']);
+            // console.log(data[i]['quest_text']);
             res.quests[data[i]['quest_id']] = data[i]['text'];
         }
         callback(null, res);

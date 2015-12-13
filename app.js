@@ -49,7 +49,6 @@ app.use('/api', api);
 app.use('/login', login);
 
 app.use('/loginFail', function(req, res) {
-    res.status(400);
     res.end('Your login process has failed');
 });
 
