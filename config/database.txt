@@ -1,5 +1,4 @@
-database=AnonymGreetings
-host=localhost
-port=3306
-user=root
-password=admins_password
+database=sql499699
+host=sql4.freemysqlhosting.net
+user=sql499699
+password=kcWZLg3LzV
