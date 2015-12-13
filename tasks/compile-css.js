@@ -4,7 +4,7 @@ module.exports = function(gulp, plugins) {
         'src/**/*.css'
       ])
       .pipe(plugins.concat('app.css'))
-      .pipe(plugins.md5(10))
+      // .pipe(plugins.md5(10))
       .pipe(gulp.dest('public'));
   });
 };
