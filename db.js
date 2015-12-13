@@ -4,6 +4,7 @@ var mysql = require('mysql');
 var connection = mysql.createConnection({
     host: config['host'],
     user: config['user'],
+    port: config['port'],
     password: config['password'],
     database: config['database']
 });
@@ -53,8 +54,8 @@ exports.validPassword = function(user_obj, callback) {
 "SELECT * FROM `users` WHERE id=? AND password=?";
     var inserts = [user_obj['id'], user_obj['password']];
     sql = mysql.format(sql, inserts, true);
-    console.log(JSON.stringify(user_obj));
-    console.log(sql);
+    // console.log(JSON.stringify(user_obj));
+    // console.log(sql);
     connection.query(sql, function(err, data) {
         if (err) {
             return callback(err);
@@ -97,4 +98,28 @@ ON user_quests.quest_id=quests.id;"
         }
         callback(null, res);
     });
+}
+
+exports.postQuest = function(quest_text, callback) {
+    var sql =
+"INSERT INTO `quests` \
+(text) \
+VALUES \
+(?)";
+    var inserts = [quest_text];
+    sql = mysql.format(sql, inserts, true);
+    connection.query(sql, function(err, data) {
+        if (err) {
+            return callback(err);
+        }
+        callback(null, true);
+    });
+}
+
+exports.putQuest = function(quest_obj, callback) {
+    var sql =
+"INSERT INTO `quests` \
+(quest_id,?) \
+"
+;
 }

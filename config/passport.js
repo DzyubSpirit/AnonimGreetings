@@ -32,13 +32,13 @@ module.exports = function(passport, database) {
         // console.log(2);
         return done(null, false, { message: "Incorrect username."});
       }
-      // console.log(user);
       user.validPassword(password, function(err, isExisted) {
         if (err) return done(err);
         if (!isExisted) {
           // console.log(3);
           return done(null, false, {message: "Incorrect password."});
         } else {
+          // console.log(user);
           // console.log(4);
           return done(null, user);
         }

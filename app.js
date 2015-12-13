@@ -12,6 +12,7 @@ require('./config/passport.js')(passport, db);
 var routes = require('./routes/index')(db);
 var users = require('./routes/users');
 var api = require('./routes/api')(db);
+var login = require('./routes/login')(passport);
 
 var app = express();
 
@@ -28,7 +29,7 @@ app.set('view engine', 'jade');
 app.use(favicon());
 app.use(logger('dev'));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded());
+app.use(bodyParser.urlencoded( { extended: true }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -41,19 +42,27 @@ app.use(passport.initialize());
 app.use(passport.session());
 // app.use(app.router);
 
+
 app.use('/', routes);
 app.use('/users', users);
 app.use('/api', api);
+app.use('/login', login);
 
 app.use('/loginFail', function(req, res) {
+    res.status(400);
     res.end('Your login process has failed');
 });
 
-app.use('/login', passport.authenticate('local-login', {
-    successRedirect: '/',
-    failureRedirect: '/loginFail',
-    failureFlash: false
-}));
+app.use('/loginSuccess', function(req, res) {
+    res.end('ok');
+});
+
+
+// app.use('/login', passport.authenticate('local-login'));
+
+// app.use('/login', passport.authenticate('local-login', {
+//     failureFlash: false
+// }));
 
 /// catch 404 and forwarding to error handler
 app.use(function(req, res, next) {
