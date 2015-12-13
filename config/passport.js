@@ -26,17 +26,18 @@ module.exports = function(passport, database) {
     User.findOne({ username: username }, function(err, user) {
       if (err) { 
         // console.log(1);
-        return done(err); 
+        // return done(err); 
       }
       if (!user) {
         // console.log(2);
-        return done(null, false, { message: "Incorrect username."});
+        // return done(null, false, { message: "Incorrect username."});
       }
       user.validPassword(password, function(err, isExisted) {
+        // console.log('6');
         if (err) return done(err);
         if (!isExisted) {
           // console.log(3);
-          return done(null, false, {message: "Incorrect password."});
+          // return done(null, false, {message: "Incorrect password."});
         }
         // console.log(user);
         // console.log(4);
@@ -49,7 +50,7 @@ module.exports = function(passport, database) {
     passwordField : 'password',
     passReqToCallback : true
   },function(req, username, password, done) {
-    // console.log('Pass:'+password);
+    console.log('Pass:'+password);
     // console.log(req.body);
     User.findOne({ username: username }, function(err, user) {
       if (err) { 

@@ -104,7 +104,7 @@ exports.validPassword = function(user_obj, callback) {
     });
 }
 
-exports.getQuests = function(user_id, callback) {
+exports.getQuestsAsOwner = function(user_id, callback) {
     var sql =
 "SELECT user_quests.user_id, \
         user_quests.quest_id, \
@@ -113,7 +113,7 @@ FROM `users` \
 RIGHT JOIN `user_quests` \
 ON users.id=? AND users.id=user_quests.user_id \
 LEFT JOIN `quests` \
-ON user_quests.quest_id=quests.id;"
+ON user_quests.quest_id=quests.id;";
     var inserts = [user_id];
     sql = mysql.format(sql, inserts, true);
     connection.query(sql, function(err, data) {
@@ -134,6 +134,23 @@ ON user_quests.quest_id=quests.id;"
             res.quests[data[i]['quest_id']] = data[i]['text'];
         }
         callback(null, res);
+    });
+}
+
+exports.getQuest = function(quest_id, callback) {
+    var sql=
+"SELECT * FROM `quests` \
+WHERE id=?";
+    var inserts = [quest_id];
+    sql = mysql.format(sql, inserts);
+    connection.query(sql, function(err, quest) {
+        if (err) {
+            return callback(err);
+        }
+        if (quest.length === 0) {
+            return callback(null, false);
+        }
+        callback(null, quest[0]);
     });
 }
 
@@ -169,5 +186,4 @@ WHERE id=?;"
         }
         сallback(null, quest_obj); 
     });
-;
 }

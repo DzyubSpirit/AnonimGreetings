@@ -13,13 +13,15 @@ function addPasswordValidation(user) {
 }
 
 lib.findOne = function(user_obj, callback) {
+    // console.log(1);
     db.findUser(user_obj, function(err, user) {
         if (err) {
-            callback(err);
+            console.log(err);
+            // callback(err);
             return;
         }
         addPasswordValidation(user);
-        // console.log(data);
+        // console.log(user);
         callback(null, user);
     });
 }

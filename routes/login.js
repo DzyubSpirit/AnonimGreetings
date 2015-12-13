@@ -15,5 +15,8 @@ module.exports = function (passport_) {
         failureRedirect: 'loginFail',
         failureFlash: false
     }));
+    router.all('/', function(req, res) {
+        res.end('No!!!!!');
+    });
     return router;
 }
