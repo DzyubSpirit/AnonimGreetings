@@ -6,21 +6,19 @@
     <title>New Year Hackaton</title>
     <!-- Прикол1 -->
     <link href="..\css\bootstrap.css" rel="stylesheet">
-    <link href="..\css\edit-quest.css" rel="stylesheet">
+    <link href="..\css\create-quest.css" rel="stylesheet">
   </head>
 
   <body>
-  <div class = "page_container" id = "edit-quest">
     <div class="form_container">
       <form class="form-signin">
-        <h2 class = "edit_2ndheader">Edit your quest</h2>
-        <label for="inputQuest" class="sr-only">Your quest</label>
-        <div class = "questtext"><textarea rows = "10" cols = "45" name = "questtext"></textarea></div>
-        <label for="inputEmail" class="sr-only">Your mail</label>
+        <h2 class="form-signin-heading">Create new quest</h2>
+        <label for="inputQuest" class="sr-only">Enter your quest here</label>
+        <input type="text" id="inputQuest" class="form-createquest" placeholder="Quest text" required autofocus>
+        <label for="inputEmail" class="sr-only">Enter your mail here</label>
         <input type="email" id="inputEmail" class="form-enteremail" placeholder="Email adress" required autofocus>
-        <button class="btn btn-lg btn-primary btn-edit" type="submit">Edit</button>
+        <button class="btn btn-lg btn-primary btn-create" type="submit">Create</button>
       </form>
     </div> 
-  </div>
   </body>
 </html>

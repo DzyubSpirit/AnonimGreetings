@@ -29,6 +29,7 @@ a {
   margin: 0 auto 10px;
 	height: 250px;
 	width: 450px;
+  border-radius: 6px;
 }
 .emailadress{
 	width: 250px;
