@@ -46,14 +46,13 @@ app.use(passport.session());
 app.use('/', routes);
 app.use('/users', users);
 app.use('/api', api);
-app.use('/login', login);
+app.use('/api/login', login);
 
-app.use('/loginFail', function(req, res) {
-    res.status(400);
+app.use('/api/loginFail', function(req, res) {
     res.end('Your login process has failed');
 });
 
-app.use('/loginSuccess', function(req, res) {
+app.use('/api/loginSuccess', function(req, res) {
     res.end('ok');
 });
 

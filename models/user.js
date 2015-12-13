@@ -13,13 +13,15 @@ function addPasswordValidation(user) {
 }
 
 lib.findOne = function(user_obj, callback) {
+    // console.log(1);
     db.findUser(user_obj, function(err, user) {
         if (err) {
-            callback(err);
+            console.log(err);
+            // callback(err);
             return;
         }
         addPasswordValidation(user);
-        // console.log(data);
+        // console.log(user);
         callback(null, user);
     });
 }
@@ -35,6 +37,10 @@ lib.findById = function(user_id, callback) {
         // console.log(data);
         callback(null, user);
     });
+}
+
+lib.create = function(user_obj, callback) {
+    db.createUser(user_obj, callback);
 }
 
 module.exports = function(database) {

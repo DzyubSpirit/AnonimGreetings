@@ -2,17 +2,29 @@ var express = require('express');
 var router = express.Router();
 var db;
 
-router.get('/quests', function(req, res) {
+router.get('/questsAsOwner', function(req, res) {
     // res.write('What? Always okay now!');
     // res.end(JSON.stringify(req.user));
     if (!req.isAuthenticated()) {
         res.end('No authenticated');
     }
-    db.getQuests(req.user.id, function(err, quests) {
+    db.getQuestsAsOwner(req.user.id, function(err, quests) {
         if (err) {
             throw err;
         }
         res.end(JSON.stringify(quests));
+    });
+});
+
+router.get('/quests/:quest_id', function(req, res) {
+    if (!req.isAuthenticated()) {
+        res.end('No authenticated');
+    }
+
+    db.getQuest(req.param('quest_id'), function(err, quest) {
+        if (err) {
+            
+        }
     });
 });
 
@@ -43,9 +55,28 @@ router.put('/quests/:quest_id', function(req, res) {
     if (!quest_id) {
         res.statusCode(400);
         res.end('No quest id');
+    }
+    var quest_text = req.body.text;
+    if (!quest_text) {
+        res.statusCode(400);
+        res.end('No text');
     }    
 
-    
+    db.putQuest({
+        'id': quest_id,
+        'text': quest_text
+    }, function(err, quest) {
+        if (err) {
+            throw err;
+        }
+        if (!quest) {
+            res.statusCode(400);
+            res.end('No such quest');
+            return;
+        }
+        res.end('ok');
+    });
+
 })
 
 module.exports = function(database) {

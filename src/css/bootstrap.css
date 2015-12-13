@@ -5958,7 +5958,7 @@ button.close {
   margin-bottom: 0;
   margin-left: 5px;
 }
-.modal-footer .btn-group .btn + .btn {
+.modal-footer .group .btn + .btn {
   margin-left: -1px;
 }
 .modal-footer .btn-block + .btn-block {

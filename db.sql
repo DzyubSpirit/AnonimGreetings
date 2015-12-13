@@ -48,8 +48,13 @@ DROP TABLE IF EXISTS `quests`;
 CREATE TABLE `quests` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `text` varchar(128) COLLATE utf8_unicode_ci NOT NULL,
+  `accepted` tinyint(1) NOT NULL,
+  `acceptor` int(10) unsigned DEFAULT NULL,
+  `completed` tinyint(1) NOT NULL,
+  `video` varchar(256) COLLATE utf8_unicode_ci NOT NULL,
+  `choosen` tinyint(1) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -58,6 +63,7 @@ CREATE TABLE `quests` (
 
 LOCK TABLES `quests` WRITE;
 /*!40000 ALTER TABLE `quests` DISABLE KEYS */;
+INSERT INTO `quests` VALUES (1,'First text of the year',0,NULL,0,'',0),(2,'Swap text',0,NULL,0,'',0);
 /*!40000 ALTER TABLE `quests` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -73,7 +79,7 @@ CREATE TABLE `user_quests` (
   `user_id` int(10) unsigned NOT NULL,
   `quest_id` int(10) unsigned NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -82,6 +88,7 @@ CREATE TABLE `user_quests` (
 
 LOCK TABLES `user_quests` WRITE;
 /*!40000 ALTER TABLE `user_quests` DISABLE KEYS */;
+INSERT INTO `user_quests` VALUES (1,1,1),(2,1,2);
 /*!40000 ALTER TABLE `user_quests` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -96,8 +103,9 @@ CREATE TABLE `users` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `login` varchar(16) COLLATE utf8_unicode_ci NOT NULL,
   `password` varchar(16) COLLATE utf8_unicode_ci NOT NULL,
+  `email` varchar(32) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -106,7 +114,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'Gimly','death_for_elves');
+INSERT INTO `users` VALUES (1,'Gimly','death_for_elves','beg@gmail.com'),(20,'Legolas','no_physics','lego@gmail.com');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -119,4 +127,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-12-12 22:59:25
+-- Dump completed on 2015-12-13  7:19:34
