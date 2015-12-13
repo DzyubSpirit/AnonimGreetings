@@ -155,8 +155,19 @@ VALUES \
 
 exports.putQuest = function(quest_obj, callback) {
     var sql =
-"INSERT INTO `quests` \
-(quest_id,?) \
-"
+"UPDATE `quests` \
+SET text=? \
+WHERE id=?;"
+    var inserts = [quest_obj['text'], quest_obj['id']];
+    sql = mysql.format(sql, inserts, true);
+    connection.query(sql, function(err, data) {
+        if (err) {
+            return callback(err);
+        }
+        if (data.affectedRows === 0) {
+            return callback(null, false);
+        }
+        сallback(null, quest_obj); 
+    });
 ;
 }
