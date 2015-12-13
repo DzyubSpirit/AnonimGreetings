@@ -1,25 +1,33 @@
 body {
-  padding: top 250px;
   font-family: Futura, "Trebuchet MS", Arial, sans-serif;
 }
 
 a {
   color: #00B7FF;
 }
+.page_container{
+}
+#create-quest{
+  color: white;
+  width: 100%;
+  height: 100%;
+  background-image: url("../images/create.jpg");
+  background-size: 100%;
+}
 .form_container{
 	display: block;
-	padding-top: 50px;
+	padding-top: 100px;
 	text-align: center;
 }
 .btn-create {
-  color: #fff;
+  color: #000;
   margin: 15px;
-  background-color:#449d44;
+  background-color:#8B4513;
   border-color: #2e6da4;
 }
 .questtext{
-	position: absolute;
-	height: 350px;
+  margin: 0 auto 10px;
+	height: 250px;
 	width: 450px;
 }
 .emailadress{
@@ -27,17 +35,15 @@ a {
 }
 .form-createquest{
   margin: 0 auto 10px;
-  text-align: left;
+  padding: 10px;
   width: 450px;
   height: 100px;
-  padding: 6px 12px;
   font-size: 14px;
   line-height: 1.42857143;
   color: #555;
   background-color: #fff;
-  background-image: none;
   border: 1px solid #ccc;
-  border-radius: 4px;
+  border-radius: 6px;
 }
 .form-enteremail{	
   margin: 0 auto 10px;

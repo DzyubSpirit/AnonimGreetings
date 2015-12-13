@@ -10,15 +10,17 @@
   </head>
 
   <body>
+  <div class = "page_container" id="login-page">
     <div class="login_container">
       <form class="form-signin">
         <h2 class="form-signin-heading">Login</h2>
         <label for="inputEmail" class="sr-only">Enter your email adress here</label>
-        <input type="email" id="inputEmail" class="form-control" placeholder="Email adress" required autofocus>
+        <div class = "login_password_container"> <textarea rows="1", cols = "50" name = "login" placeholder = "Login"></textarea></div>
         <label for="inputPassword" class="sr-only">Enter your password here</label>
-        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required> 
+        <div class = "login_password_container"> <textarea rows="1", cols = "50" name = "password" type = "" placeholder = "Password"></textarea></div> 
         <button class="btn btn-lg btn-primary btn-success" type="submit">Login</button>
       </form>
     </div> 
+    </div>
   </body>
 </html>

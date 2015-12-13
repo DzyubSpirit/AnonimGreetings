@@ -1,11 +1,15 @@
 body {
 	font-family: Futura, "Trebuchet MS", Arial, sans-serif;
-	background-image: url("../images/guess-who.jpg")
 }
-
+.page_container{
+	width: 100%;
+	height: 100%;
+	background-image: url("../images/guesswho.jpg");
+	background-size:100%;
+}
 .text_container {
-	width: 700px;
-	margin: 20px auto 50px;
+	width: 100%;
+	margin: 0px auto 0px;
 	text-align: center;
 }
 
@@ -30,7 +34,7 @@ body {
 }
 
 .video_container {
-	margin: 30px;
+  margin: 0 auto 0;
 }
 
 .form-entercode{	
@@ -60,4 +64,10 @@ a:hover {
 }
 a:active {
 	color: #ff6500;
+}
+.guesswho_btn{
+	margin-top: 10px;
+  	background-color:#D2691E;
+	width: 200;
+	height: 50;
 }
