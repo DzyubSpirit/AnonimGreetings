@@ -5958,7 +5958,7 @@ button.close {
   margin-bottom: 0;
   margin-left: 5px;
 }
-.modal-footer .btn-group .btn + .btn {
+.modal-footer .group .btn + .btn {
   margin-left: -1px;
 }
 .modal-footer .btn-block + .btn-block {
@@ -6763,45 +6763,52 @@ button.close {
 /*# sourceMappingURL=bootstrap.css.map */
 
 body {
-  padding: top 250px;
   font-family: Futura, "Trebuchet MS", Arial, sans-serif;
 }
 
 a {
   color: #00B7FF;
 }
+.page_container{
+}
+#create-quest{
+  color: white;
+  width: 100%;
+  height: 100%;
+  background-image: url("../images/create.jpg");
+  background-size: 100%;
+}
 .form_container{
 	display: block;
-	padding-top: 50px;
+	padding-top: 100px;
 	text-align: center;
 }
 .btn-create {
-  color: #fff;
+  color: #000;
   margin: 15px;
-  background-color:#449d44;
+  background-color:#8B4513;
   border-color: #2e6da4;
 }
 .questtext{
-	position: absolute;
-	height: 350px;
+  margin: 0 auto 10px;
+	height: 250px;
 	width: 450px;
+  border-radius: 6px;
 }
 .emailadress{
 	width: 250px;
 }
 .form-createquest{
   margin: 0 auto 10px;
-  text-align: left;
+  padding: 10px;
   width: 450px;
   height: 100px;
-  padding: 6px 12px;
   font-size: 14px;
   line-height: 1.42857143;
   color: #555;
   background-color: #fff;
-  background-image: none;
   border: 1px solid #ccc;
-  border-radius: 4px;
+  border-radius: 6px;
 }
 .form-enteremail{	
   margin: 0 auto 10px;
@@ -6826,21 +6833,29 @@ body {
 a {
   color: #00B7FF;
 }
+.page_container{
+ 
+}
+#edit-quest{
+ width: 100%;
+  height: 100%;
+  background-size: 100%;
+  background-image: url("../images/edit.jpg");}
 .form_container{
   display: block;
   padding-top: 50px;
   text-align: center;
 }
-.btn-create {
+.btn-edit {
   color: #fff;
   margin: 15px;
-  background-color:#449d44;
+  background-color:#286090;
   
   border-color: #2e6da4;
 }
 .questtext{
-  position: absolute;
-  height: 350px;
+  margin: 0 auto 10px;
+  height: 200px;
   width: 450px;
 }
 .emailadress{
@@ -6854,7 +6869,7 @@ a {
   font-size: 14px;
   line-height: 1.42857143;
   color: #555;
-  background-color: #fff;
+  background-color: #E0FFFF;
   background-image: none;
   border: 1px solid #ccc;
   border-radius: 4px;
@@ -6869,19 +6884,32 @@ a {
   font-size: 14px;
   line-height: 1.42857143;
   color: #555;
-  background-color: #fff;
+  background-color: #E0FFFF;
   background-image: none;
   border: 1px solid #ccc;
   border-radius: 4px;
 }
+.edit_2ndheader{
+  text-shadow: -4px 2px 0px rgba(171, 150, 150, 1);
+  text-shadow: 4px 2px 0px rgba(171, 150, 150, 1);
+  margin-top: -25px;
+  margin-bottom: 25px;
+  font-size: 40px;
+  padding-right: 50px;
+  padding-right: 35px;
+}
 body {
 	font-family: Futura, "Trebuchet MS", Arial, sans-serif;
-	background-image: url("../images/guess-who.jpg")
 }
-
+.page_container{
+	width: 100%;
+	height: 100%;
+	background-image: url("../images/guesswho.jpg");
+	background-size:100%;
+}
 .text_container {
-	width: 700px;
-	margin: 20px auto 50px;
+	width: 100%;
+	margin: 0px auto 0px;
 	text-align: center;
 }
 
@@ -6906,7 +6934,7 @@ body {
 }
 
 .video_container {
-	margin: 30px;
+  margin: 0 auto 0;
 }
 
 .form-entercode{	
@@ -6937,16 +6965,30 @@ a:hover {
 a:active {
 	color: #ff6500;
 }
+.guesswho_btn{
+	margin-top: 10px;
+  	background-color:#D2691E;
+	width: 200;
+	height: 50;
+}
 body {
-	background-image: url("./images/login.jpg");
-  padding: top 250px;
   font-family: Futura, "Trebuchet MS", Arial, sans-serif;
 }
+.page_container{
 
+}
+#login-page {
+	color:white;
+	width: 100%;
+	height: 100%;
+  	background-image: url("../images/login.jpg")
+}
 a {
   color: #00B7FF;
 }
-
+.login_password_container{
+	margin: 0 auto 10px;
+}
 .login_container{
   padding-top: 200px;
   width: 300px;
@@ -6954,7 +6996,6 @@ a {
   text-align: center
 }
 body {
-  padding: top 250px;
   font-family: Futura, "Trebuchet MS", Arial, sans-serif;
 }
 
@@ -6992,6 +7033,85 @@ a {
 body {
 	font-family: Futura, "Trebuchet MS", Arial, sans-serif;
 }
+.list_container{
+	margin: 0 auto 0px;
+  text-align: center;
+	display: block;
+  width: 100%;
+  height: 100%px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #333;
+  background-color: #fff;
+  background-image: none;
+}
+.user_container{
+	width: 100%;
+	display: block;
+  border-color: blue;
+  border: groove;
+  border-radius: 4px;
+}
+
+.btn{
+	text-align: center;
+	display: inline;
+	height: 40px;
+}
+.button_container{
+	margin: 20px auto 20px;
+	width: 400px;
+	display: inline;
+}
+.top_button{
+	width: 200px;
+	height: 50px;
+	margin: 20px auto 20px;
+}
+.list-group-item {
+	margin: 0 auto 0px;
+	width: 78%;
+  display: block;
+  padding: 10px 15px;
+  margin-bottom: -1px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+}
+a.list-item,
+button.list-item {
+  color: #555;
+}
+button.list-item {
+  width: 100%;
+  text-align: left;
+}
+.page_container{
+	width: 100%;
+	height: 100%;
+	background-size: 100%;
+	background-image: url("../images/login.jpg");
+}
+.left_container{
+	padding-top: 180px;
+	float: left;
+	width: 50%;
+	height: 100%;
+}
+.right_container{
+	padding-top: 180px;
+	float: right;
+	width: 50%;
+	height: 100%;
+}
+.headingtext_container{
+	text-align: center;
+	/*margin-bottom: 25px;*/
+	font-size: 50px;
+	color: white;
+}
+body {
+	font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+}
 
 .list_container{
 	margin: 0 auto 10px;
@@ -7023,14 +7143,21 @@ body {
 	height: 40px;
 }
 body {
-  padding: top 250px;
   font-family: Futura, "Trebuchet MS", Arial, sans-serif;
 }
 
 a {
   color: #00B7FF;
 }
+.page_container{
+  color: white;
+  width: 100%;
+  height: 100%;
+  background-size: 100%;
+  background-image: url("../images/current.jpg");
+}
 .form_container{
+  margin: 0 auto 20px;
 	display: block;
 	padding-top: 50px;
 	text-align: center;
@@ -7052,7 +7179,7 @@ a {
 .btn{
 	color: white;
 	margin: 0 auto 30px;
-	background-color: #333;
+	background-color: #8B4513;
 }
 .form-createquest{
   margin: 0 auto 10px;

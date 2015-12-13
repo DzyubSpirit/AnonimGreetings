@@ -11,7 +11,7 @@
 		var self = this;
 
 		this.AuthResource.get({ username: this.username, password: this.password })
-			.$resource.then(function() {
+			.$promise.then(function() {
 				this.state.go('main');
 			}, function(err) {
 				self.username = '';

@@ -2,11 +2,11 @@ var config = require('./config/config.js');
 var mysql = require('mysql');
 
 var connection = mysql.createConnection({
-    host: config['host'],
-    user: config['user'],
-    port: config['port'],
-    password: config['password'],
-    database: config['database']
+    host: "54.217.215.74",
+    user: "sql499699",
+    // port: config['port'],
+    password: 'kcWZLg3LzV',
+    database: "sql499699"
 });
 connection.connect();
 
