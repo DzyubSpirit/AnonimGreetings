@@ -98,3 +98,9 @@ ON user_quests.quest_id=quests.id;"
         callback(null, res);
     });
 }
+
+exports.postQuest = function(quest_obj, callback) {
+    var sql =
+"INSERT INTO `quests` \
+(text)";
+}

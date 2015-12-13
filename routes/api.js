@@ -16,6 +16,13 @@ router.get('/quests', function(req, res) {
     });
 });
 
+router.post('/quests/:quest-id', function(req, res) {
+    if (!req.isAuthenticated()) {
+        res.end('No authenticated');
+    }
+    res.end('Oki');
+});
+
 module.exports = function(database) {
     db = database;
     return router;
