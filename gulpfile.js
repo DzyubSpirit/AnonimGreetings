@@ -7,6 +7,7 @@ fs.readdirSync('tasks').forEach(function(fileName) {
   require(path.join(__dirname, 'tasks', fileName))(gulp, plugins);
 });
 
-gulp.task('default', [ 'build-dist' ]);
+gulp.task('default', [ 'build-dist' , 'watch' ]);
 gulp.task('build-dist', [ 'compile-app', 'compile-html', 'compile-partials', 'clean' ]);
-gulp.task('compile-app', [ 'compile-css', 'concat-vendors', 'compile-js' ]);
+gulp.task('compile-app', [ 'compile-css', 'concat-vendors', 'compile-js', 'compile-images' ]);
+gulp.task('compile-good', [ 'compile-css', 'compile-html', 'compile-images', 'concat-vendors', ]);

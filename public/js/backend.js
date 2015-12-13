@@ -1,41 +1,3 @@
-angular.module('app', [ 'app.configuration', 'ui.router', 'ngMockE2E' ]);
-angular.module( 'app.configuration', []);
-
-angular.module('app')
-  .config([ '$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
-    $urlRouterProvider.otherwise('/login');
-    //
-    // Now set up the states
-    $stateProvider
-      .state('login', {
-        abstract: true,
-        url: '/login',
-        templateUrl: 'partials/wizard/structure.html',
-        controller: 'WizardCtrl',
-        controllerAs: 'wizard'
-      })
-      .state('wizard.theme', {
-        url: '/theme',
-        templateUrl: 'partials/wizard/themes.html',
-        controller: 'ThemesCtrl',
-        controllerAs: 'showcase'
-      })
-      .state('wizard.constructor', {
-        url: '/constructor',
-        templateUrl: 'partials/wizard/constructor.html',
-        controller: 'ConstructorCtrl',
-        controllerAs: 'constructor'
-      })
-      .state('wizard.save', {
-        url: '/save',
-        templateUrl: 'partials/wizard/save.html'
-      })
-      .state('wizard.link', {
-        url: '/link',
-        templateUrl: 'partials/wizard/link.html'
-      })
-  } ])
-
 
 angular.module('app').run(function($httpBackend){
     var rules = [{rulename: 'Must be 5 characters'}, 
@@ -83,6 +45,9 @@ angular.module('app').run(function($httpBackend){
 
     //returns the current list of rules
     $httpBackend.whenGET('/').respond(themes);
+    // $httpBackend.whenGET('/api/login').respond(function() {
+    //     console.log(arguments)
+    // });
 
     // adds a new rule to the rules array
     $httpBackend.whenPOST('/').respond(function(method, url, data){
@@ -94,5 +59,3 @@ angular.module('app').run(function($httpBackend){
 
     $httpBackend.whenGET(/.*/).passThrough();
 });
-angular.module('app.configuration')
-  .constant('APP_VERSION', '1.0')

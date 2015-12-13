@@ -4,7 +4,7 @@ module.exports = function(gulp, plugins) {
       // 'public/vendors_*.js',
       // 'public/app_*.js',
       // 'public/app_*.css'
-      'public/vendors.js',
+      'public/vendors/*.js',
       'public/app.js',
       'public/app.css'
     ], { read: false });
