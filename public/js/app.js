@@ -9,5 +9,11 @@ angular.module('app')
         templateUrl: 'partials/login.html',
         controller: 'loginCtrl',
         controllerAs: 'auth'
+      })      
+      .state('main', {
+        url: '/main',
+        templateUrl: 'partials/main.html',
+        controller: 'mainCtrl',
+        controllerAs: 'main'
       })
   } ])
