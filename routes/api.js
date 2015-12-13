@@ -16,12 +16,37 @@ router.get('/quests', function(req, res) {
     });
 });
 
-router.post('/quests/:quest-id', function(req, res) {
+router.post('/quests', function(req, res) {
     if (!req.isAuthenticated()) {
         res.end('No authenticated');
     }
-    res.end('Oki');
+
+    if (!req.body.text) {
+        res.statusCode(400);
+        res.end('No text in request');
+    }
+
+    db.postQuest(req.body.text, function(err, data) {
+        if (err) {
+            throw err;
+        }
+        res.end('ok');
+    });
 });
+
+router.put('/quests/:quest_id', function(req, res) {
+    if (!req.isAuthenticated()) {
+        res.end('No authenticated');
+    }
+
+    var quest_id = req.param('quest_id');
+    if (!quest_id) {
+        res.statusCode(400);
+        res.end('No quest id');
+    }    
+
+    
+})
 
 module.exports = function(database) {
     db = database;
