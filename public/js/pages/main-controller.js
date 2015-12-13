@@ -1,13 +1,12 @@
 (function() {
-	angular.module('app.auth')
-		.controller('loginCtrl', loginController)
+	angular.module('app.main')
+		.controller('mainCtrl', mainController)
 
-	function loginController(AuthResource, $state) {
-		this.AuthResource = AuthResource;
+	function mainController($state) {
 		this.state = $state;
 	}
 
-	loginController.prototype.login = function() {
+	mainController.prototype.login = function() {
 		var self = this;
 
 		this.AuthResource.get({ username: this.username, password: this.password })
