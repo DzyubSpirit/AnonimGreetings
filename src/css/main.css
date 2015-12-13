@@ -54,10 +54,13 @@ button.list-item {
   text-align: left;
 }
 .page_container{
+
+}
+#main{
 	width: 100%;
 	height: 100%;
 	background-size: 100%;
-	background-image: url("../images/login.jpg");
+	background-image: url("../images/login.jpg");	
 }
 .left_container{
 	padding-top: 180px;
